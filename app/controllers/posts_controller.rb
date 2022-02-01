@@ -7,5 +7,4 @@ class PostsController < ApplicationController
     @user_id = params[:user_id]
     @post_id = params[:id]
   end
-
 end
