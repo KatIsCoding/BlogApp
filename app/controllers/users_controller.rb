@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   def index
   end
-  def users
+  def show
+    puts "This are the params: " + params.to_s
+    @userId =params[:id]
+    puts @userId
   end
 end
