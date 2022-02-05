@@ -63,9 +63,9 @@ ActiveRecord::Schema.define(version: 2022_02_05_091805) do
     t.integer "postscounter"
   end
 
-  add_foreign_key "comments", "posts", column: "posts_id"
-  add_foreign_key "comments", "users", column: "users_id"
-  add_foreign_key "likes", "posts", column: "posts_id"
-  add_foreign_key "likes", "users", column: "users_id"
-  add_foreign_key "posts", "users", column: "users_id"
+  add_foreign_key "comments", "posts", column: "postid"
+  add_foreign_key "comments", "users", column: "authorid"
+  add_foreign_key "likes", "posts", column: "postid"
+  add_foreign_key "likes", "users", column: "authorid"
+  add_foreign_key "posts", "users", column: "authorid"
 end
