@@ -1,5 +1,6 @@
 class AddPostRefToComment < ActiveRecord::Migration[7.0]
   def change
-    add_reference :comments, :posts, foreign_key: true
+    add_column :comments, :post_id, :integer
+    add_foreign_key :comments, :posts, column: :post_id
   end
 end
