@@ -1,5 +1,4 @@
 class Post < ActiveRecord::Base
-
   # Method that updates the post counter for a given user.
 
   def self.update_counter(user:)
@@ -11,7 +10,4 @@ class Post < ActiveRecord::Base
   def self.recent_comments(post:)
     Comment.where(post_id: post.id).order(created_at: :desc).limit(5)
   end
-
-
-
 end

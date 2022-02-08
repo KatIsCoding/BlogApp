@@ -1,6 +1,4 @@
 class Comment < ActiveRecord::Base
-
-
   # Method that updates the comment counter for a post
 
   def self.update_counter(post:)
