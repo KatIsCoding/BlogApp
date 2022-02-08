@@ -1,7 +1,9 @@
 class Like < ActiveRecord::Base
+  belongs_to :post, class_name: 'Post'
   # Method that updates the likes counter for a post
+  after_save :update_counter
 
-  def self.update_counter(post:)
-    post.update(likescounter: Like.where(post_id: post.id).count)
+  def update_counter()
+    post.increment!(:likescounter)
   end
 end
