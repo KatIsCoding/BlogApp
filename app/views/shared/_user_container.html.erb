@@ -1,0 +1,7 @@
+<div class="user">
+      <img width="110px" src="<%=user.photo%>" alt="<%= user.name %>" >
+      <div class="user-content">
+      <h5><%= user.name %></h5>
+      <p>Number of posts: <% if !user.postscounter then %> <%= 0 %> <%else%> <%=user.postscounter%><%end%></p>
+      </div>
+    </div>
