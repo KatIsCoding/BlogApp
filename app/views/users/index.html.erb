@@ -1,2 +1,8 @@
-<h1>Here is a list of all the users</h1>
+<main>
+<% User.all().each do |user|%>
+  <%= link_to user_path(user) do%>
+    <%= render :partial => "shared/user_container", locals: { :user => user }%>
+  <% end %>
+<% end %>
+</main>
 
