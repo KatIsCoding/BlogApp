@@ -3,8 +3,8 @@
       <% @user.posts.each do |post| %>
         <%= link_to user_post_path(@user, post) do %>
         <li>
-          <%= render :partial => "shared/post_container", locals: { :post => post}%>
-          <%= render :partial => "shared/comments_container", locals: { :comments => post.comments, :limit => 5}%>
+          <%= render :partial => "shared/post_container", locals: { :post => post }%>
+          <%= render :partial => "shared/comments_container", locals: { :comments => post.recent_comments, :limit => 5}%>
           </li>
         <% end %>
       <% end %>

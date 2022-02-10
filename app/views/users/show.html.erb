@@ -7,7 +7,7 @@
 
   
     <ul class="posts-container">
-      <% @user.posts.each do |post| %>
+      <% @user.last_posts.each do |post| %>
         
           <li>
           <%= render :partial => "shared/post_container", locals: { :post => post }%>
