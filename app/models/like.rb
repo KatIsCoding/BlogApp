@@ -8,4 +8,3 @@ class Like < ActiveRecord::Base
     post.increment!(:likescounter)
   end
 end
-
