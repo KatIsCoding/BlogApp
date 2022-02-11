@@ -1,6 +1,11 @@
 <div class="post">
+  <%= form_with url: "/like/" + post.id.to_s do |form| %>
+    <%= form.submit "Like" %>
+  <% end %>
+  <%= link_to onClick do %>
   <h4><%= post.title %></h4>
   <p><%= post.text %></p>
   Comments: <% if !post.commentscounter then %> <%= 0 %> <%else%> <%=post.commentscounter%><%end%>
   Likes: <% if !post.likescounter then %> <%= 0 %> <%else%> <%=post.likescounter%><%end%>
+  <%end%>
 </div>
