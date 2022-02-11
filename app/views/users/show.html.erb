@@ -1,2 +1,23 @@
-<h1>Here is the data for a specific user with the following id</h1>
-<%= @user_id %>
+<main>
+  <%= render :partial => "shared/user_container", locals: { :user => @user }%>
+  <div class="bio-container">
+    <h3>Bio</h3>
+    <p><%= @user.bio %></p>
+  </div>
+
+  
+    <ul class="posts-container">
+      <% @user.last_posts.each do |post| %>
+        
+          <li>
+          <%= render :partial => "shared/post_container", locals: { :post => post }%>
+          </li>
+        
+      <% end %>
+    </ul>
+
+    <%= link_to user_posts_path(@user) do %>
+    <button type="button">View All Posts</button>
+    <% end %>
+  
+</main>

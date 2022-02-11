@@ -1,0 +1,6 @@
+<div class="post">
+  <h4><%= post.title %></h4>
+  <p><%= post.text %></p>
+  Comments: <% if !post.commentscounter then %> <%= 0 %> <%else%> <%=post.commentscounter%><%end%>
+  Likes: <% if !post.likescounter then %> <%= 0 %> <%else%> <%=post.likescounter%><%end%>
+</div>
