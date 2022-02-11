@@ -1,5 +1,7 @@
 <main>
+<%= render :partial => "shared/user_container", locals: { :user => @user }%>
     <ul class="posts-container">
+    
       <% @user.posts.each do |post| %>
         <%= link_to user_post_path(@user, post) do %>
         <li>
