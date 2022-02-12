@@ -1,7 +1,7 @@
 
 <h4>Create a post here!</h4>
 <p>Current User: <%= UsersController.current_user.name %></p>
-<%= form_with url: user_posts_path(UsersController.current_user), html: {class: "add-post"} do |form| %>
+<%= form_with model:Post.new, url: user_posts_path(UsersController.current_user), html: {class: "add-post"} do |form| %>
   <%= form.text_field :title, placeholder: "Post Title" %>
   <%= form.text_area :text, size: "70x5", placeholder: "Post Content" %>
   <%= form.submit "Create Post" %>
