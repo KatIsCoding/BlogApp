@@ -15,7 +15,6 @@ class PostsController < ApplicationController
   def new; end
 
   def create
-    # Post.create(author: UsersController.current_user, title: params[:title], text: params[:text])
 
     @current_user = UsersController.current_user
     post_params = params.require(:post).permit(:title, :text)

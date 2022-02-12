@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe User do
+RSpec.describe Post do
   subject { Post.new(author: User.new(name: 'Testuser', postscounter: 1), commentscounter: 1, likescounter: 1, title: "Hello test") }
 
   it 'Post`s title should be present' do

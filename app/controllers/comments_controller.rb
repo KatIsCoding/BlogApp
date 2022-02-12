@@ -6,7 +6,6 @@ class CommentsController < ApplicationController
     comment_params = params.permit(:text)
     @post = Post.find(params[:id])
     @comment = @post.comments.new(text: comment_params[:text], author: @current_user)
-    puts "PARAMETERS:-------- #{params}"
     new
     respond_to do |format|
       if @comment.valid?
