@@ -12,17 +12,27 @@ class PostsController < ApplicationController
     @post = Post.find(@post_id)
   end
 
+  def new
+    self.create()
+  end
+
   def create
-    Post.create(author: UsersController.current_user, title: params[:title], text: params[:text])
+    #Post.create(author: UsersController.current_user, title: params[:title], text: params[:text])
+    
+    @current_user = UsersController.current_user
+    post_params = params.require(:post).permit(:title, :text)
+    @post = @current_user.posts.new(post_params)
+    
+    respond_to do |format|
+      if @post.save
+        format.html { redirect_to user_post_url(@current_user, @post), notice: 'Post was successfully created.' }
+      else
+        format.html { render :new }
+      end
+    end
   end
 
-  def create_comment
-    current_post = Post.find(params[:id])
-    current_post.comments.create(author: UsersController.current_user, text: params[:text])
-  end
+  
 
-  def add_like
-    current_post = Post.find(params[:id])
-    Like.create(author: UsersController.current_user, post: current_post)
-  end
+  
 end
