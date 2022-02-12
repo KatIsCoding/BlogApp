@@ -12,4 +12,8 @@ RSpec.describe User do
     subject.postscounter = -1
     expect(subject.valid?).to be false
   end
+
+  it 'Object should be valid' do
+    expect(subject.valid?).to be true
+  end
 end
