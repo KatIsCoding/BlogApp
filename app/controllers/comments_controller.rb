@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
-  def new 
-  end
+  def new; end
 
   def create
     @current_user = UsersController.current_user
@@ -8,15 +7,13 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:id])
     @comment = @post.comments.new(text: comment_params[:text], author: @current_user)
     puts "PARAMETERS:-------- #{params}"
-    self.new()
+    new
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to user_post_url(@current_user, @post), notice: 'Comment was successfully created.'}
+        format.html { redirect_to user_post_url(@current_user, @post), notice: 'Comment was successfully created.' }
       else
         format.html { render :new }
       end
     end
-
   end
-
 end

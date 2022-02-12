@@ -1,6 +1,5 @@
 class LikesController < ApplicationController
-  def new
-  end
+  def new; end
 
   def create
     puts "PARAMETERS:-------- #{params}"
@@ -9,9 +8,7 @@ class LikesController < ApplicationController
     @post = Post.find(like_parameters[:post_id])
     @like = Like.new(post: @post, author: current_user)
     respond_to do |format|
-      if @like.save
-        format.js { render inline: "location.reload();" }
-      end
+      format.js { render inline: 'location.reload();' } if @like.save
     end
   end
 end

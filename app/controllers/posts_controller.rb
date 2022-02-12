@@ -13,16 +13,16 @@ class PostsController < ApplicationController
   end
 
   def new
-    self.create()
+    create
   end
 
   def create
-    #Post.create(author: UsersController.current_user, title: params[:title], text: params[:text])
-    
+    # Post.create(author: UsersController.current_user, title: params[:title], text: params[:text])
+
     @current_user = UsersController.current_user
     post_params = params.require(:post).permit(:title, :text)
     @post = @current_user.posts.new(post_params)
-    
+
     respond_to do |format|
       if @post.save
         format.html { redirect_to user_post_url(@current_user, @post), notice: 'Post was successfully created.' }
@@ -31,8 +31,4 @@ class PostsController < ApplicationController
       end
     end
   end
-
-  
-
-  
 end
