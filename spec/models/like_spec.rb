@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 RSpec.describe Like do
   it 'likes increment should be higher when calling update counter' do
     post = Post.new(title: 'title', author: User.new(name: 'username'))

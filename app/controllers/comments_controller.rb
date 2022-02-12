@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
         @comment.save
         format.html { redirect_to user_post_url(@current_user, @post), notice: 'Comment was successfully created.' }
       else
-        format.html {redirect_to user_posts_path(@post.author), notice: 'Comment was not created.'}
+        format.html { redirect_to user_posts_path(@post.author), notice: 'Comment was not created.' }
       end
     end
   end
