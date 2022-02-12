@@ -9,10 +9,11 @@ class CommentsController < ApplicationController
     puts "PARAMETERS:-------- #{params}"
     new
     respond_to do |format|
-      if @comment.save
+      if @comment.valid?
+        @comment.save
         format.html { redirect_to user_post_url(@current_user, @post), notice: 'Comment was successfully created.' }
       else
-        redirect_to user_post_path(@post.author, @post)
+        format.html {redirect_to user_posts_path(@post.author), notice: 'Comment was not created.'}
       end
     end
   end
