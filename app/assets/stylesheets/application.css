@@ -72,3 +72,13 @@ main {
   border-style: solid;
   padding: 5px;
 }
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-post {
+  display: flex;
+  flex-direction: column;
+}

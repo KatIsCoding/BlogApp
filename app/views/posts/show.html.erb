@@ -1,6 +1,7 @@
 <main>
 <div class="posts-container">
-<%= render :partial => "shared/post_container", locals: { :post => @post }%>
+<%= render :partial => "shared/post_container", locals: { :post => @post, onClick: "" }%>
 <%= render :partial => "shared/comments_container", locals: { :comments => @post.comments, :limit=> 10 }%>
+<%= render :partial => "shared/comment_form"%>
 </div>
 </main>

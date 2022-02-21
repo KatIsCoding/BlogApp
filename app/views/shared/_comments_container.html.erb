@@ -1,7 +1,8 @@
 <div class="comments">
   <%
     i = 0;
-    for comment in comments do
+    for commentO in comments do
+    comment = Comment.includes([:author]).find(commentO.id)
     %>
     <%if i > limit-1 || i > comments.length-1 then break end%>
   <%i = i + 1%>
