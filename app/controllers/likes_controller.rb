@@ -8,7 +8,7 @@ class LikesController < ApplicationController
     @post = Post.find(like_parameters[:post_id])
     @like = Like.new(post: @post, author: current_user)
     respond_to do |format|
-      format.js { render inline: 'location.reload();' } if @like.save
+      format.html { redirect_to notice: 'Like was successfully created.' } if @like.save
     end
   end
 end
