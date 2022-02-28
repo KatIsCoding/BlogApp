@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   def new; end
 
   def create
-    @current_user = UsersController.current_user
+    @current_user = current_user
     comment_params = params.permit(:text)
     @post = Post.find(params[:id])
     @comment = @post.comments.new(text: comment_params[:text], author: @current_user)
