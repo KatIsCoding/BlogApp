@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: "registrations"
+  }
   resources :users, only: [:index, :show] do
     resources :posts, only: [:index, :show, :create, :comment]
   end
