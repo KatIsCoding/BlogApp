@@ -8,8 +8,12 @@
 # User.destroy_all
 # Post.destroy_all
 # Comment.destroy_all
-first_user = User.create(name: 'Tom', photo: 'https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1', bio: 'Teacher from Mexico.')
-second_user = User.create(name: 'Lilly', photo: 'https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1', bio: 'Teacher from Poland.')
+#first_user = User.create(name: 'Tom', photo: 'https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1', bio: 'Teacher from Mexico.')
+#second_user = User.create(name: 'Lilly', photo: 'https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1', bio: 'Teacher from Poland.')
+first_user = User.new(:name => 'Tom', :photo => 'https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1', :bio => 'Teacher from Mexico.',:email => 'firstUser@example.com', :password => 'password', :password_confirmation => 'password')
+second_user = User.new(:name => 'Lilly', :photo => 'https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1', :bio => 'Teacher from Mexico.',:email => 'secondUser@example.com', :password => 'password', :password_confirmation => 'password')
+first_user.save
+second_user.save
 
 first_post = Post.create(author: first_user, title: 'Hello', text: 'This is my first post')
 second_post = Post.create(author: first_user, title: 'Hello', text: 'This is my second post')
