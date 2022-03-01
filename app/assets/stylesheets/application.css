@@ -91,7 +91,7 @@ input {
   margin-top: 10px;
 }
 
-.new_user, 
+.new_user,
 .links {
   display: flex;
   flex-direction: column;
@@ -107,4 +107,3 @@ input {
 #user_remember_me {
   width: 15px;
 }
- 
