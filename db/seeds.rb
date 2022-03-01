@@ -19,9 +19,5 @@ first_post = Post.create(author: first_user, title: 'Hello', text: 'This is my f
 second_post = Post.create(author: first_user, title: 'Hello', text: 'This is my second post')
 third_post = Post.create(author: second_user, title: 'Hey!', text: 'This is my first post')
 
-
-Comment.create(post: first_post, author: second_user, text: 'Hi Tom!' )
-Comment.create(post: first_post, author: first_user, text: 'Hey Tommy!' )
-
 Like.create(author: first_user, post: first_post)
 Like.create(author: second_user, post: first_post)
