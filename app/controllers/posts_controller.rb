@@ -18,9 +18,7 @@ class PostsController < ApplicationController
     # Delete Post Here
     @post_to_delete = Post.find(params[:id])
 
-    @post_to_delete.comments.each do |comment|
-      comment.destroy
-    end
+    @post_to_delete.comments.each(&:destroy)
     @post_to_delete.destroy
     @post_author = @post_to_delete.author
     @post_author.update(postscounter: @post_author.postscounter - 1)
