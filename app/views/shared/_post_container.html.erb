@@ -1,5 +1,9 @@
 <div class="post">
+  <%if current_user.admin? || post.author == current_user%>
+    <%= button_to "Delete", user_post_path(post.author, post), action: "destroy", method: :delete, class:"btn"%>
+  <%end%>
   <%= form_with model: Like.new, url: "/like/" + post.id.to_s do |form| %>
+  
     <%= form.hidden_field :post_id, value: post.id %>
     <%= form.submit "Like" %>
   <% end %>
