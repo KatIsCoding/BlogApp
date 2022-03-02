@@ -7,7 +7,7 @@
     <%if i > limit-1 || i > comments.length-1 then break end%>
   <%i = i + 1%>
     <div class="comment">
-      <%if current_user.admin? || comment.author == current_user%>
+      <%if (can? :manage, comment) || comment.author == current_user%>
         <%= button_to "Delete", '/deletecomment/' + comment.id.to_s, action: "destroy", method: :delete, class:"btn"%>
       <%end%>
       <div class="comment-header">
