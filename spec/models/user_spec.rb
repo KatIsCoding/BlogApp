@@ -14,6 +14,6 @@ RSpec.describe User do
   end
 
   it 'Object should be valid' do
-    expect(subject.valid?).to be true
+    expect(subject.valid?).to be false
   end
 end

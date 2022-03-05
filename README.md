@@ -32,9 +32,11 @@ Note: In case this doesn't work, try `rails db:drop` and do the steps all over a
 ### Install
 - Run `bundle install` to install all the necessary dependencies
 
+## Test
+- Run `rpsec` and the tests will be executed
+
 ### Usage
 - Run `rails s` to expose a local webserver
-- 
 ## Authors
 
 👤 **Fabrizio Gomez**
