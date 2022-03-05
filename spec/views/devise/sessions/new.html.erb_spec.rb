@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'Testing Login Page', type: :feature do
-
   before(:each) do
     visit '/'
   end
@@ -18,7 +17,7 @@ RSpec.describe 'Testing Login Page', type: :feature do
 
   scenario 'When using incorrect credentials, an error is shown' do
     fill_in 'Email', with: 'asd@asd.com'
-    fill_in 'Password', with: 'asd'    
+    fill_in 'Password', with: 'asd'
     click_button 'Log in'
     expect(page).to have_content 'Forgot your password?'
   end
@@ -28,7 +27,7 @@ RSpec.describe 'Testing Login Page', type: :feature do
     x.skip_confirmation!
     x.save
     fill_in 'Email', with: 'firstUser@example.com'
-    fill_in 'Password', with: 'password'    
+    fill_in 'Password', with: 'password'
     click_button 'Log in'
     expect(page).to have_content 'Create a post here!'
   end
