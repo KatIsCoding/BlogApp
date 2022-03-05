@@ -21,9 +21,6 @@ RSpec.describe 'Testing User Show Page', type: :feature do
     x.save
     fill_in 'Email', with: 'example@example.com'
     fill_in 'Password', with: 'password'
-    # Login
-    click_button 'Log in'
-    click_link 'Tom'
     # Creation of 3 posts for first users
     first_post = Post.create(author: first_user, title: 'One', text: 'This is my first post', commentscounter: 0,
                              likescounter: 0)
@@ -32,6 +29,9 @@ RSpec.describe 'Testing User Show Page', type: :feature do
                 likescounter: 0)
     Post.create(author: first_user, title: 'Three', text: 'This is my first post', commentscounter: 0,
                 likescounter: 0)
+    # Login
+    click_button 'Log in'
+    click_link 'Tom'
   end
 
   scenario 'The users photo is visible' do
@@ -52,7 +52,7 @@ RSpec.describe 'Testing User Show Page', type: :feature do
 
   scenario 'The users first 3 posts are visible' do
     expect(page).to have_selector '.posts-container'
-    sleep(1)
+    sleep(2)
     expect(page).to have_content 'One'
     expect(page).to have_content 'Two'
     expect(page).to have_content 'Three'
