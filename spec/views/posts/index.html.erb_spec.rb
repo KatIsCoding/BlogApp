@@ -34,6 +34,7 @@ RSpec.describe 'Testing Posts Index Page', type: :feature do
     Comment.create(author: first_user, post: first_post, text: 'This is my first comment')
     # Login
     click_button 'Log in'
+    sleep(1)
     click_link 'Tom'
 
     click_button 'View All Posts'
