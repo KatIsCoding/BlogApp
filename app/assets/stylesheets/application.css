@@ -26,6 +26,10 @@ main {
   align-items: center;
 }
 
+input {
+  width: 300px;
+}
+
 .user {
   display: flex;
   flex-direction: row;
@@ -81,4 +85,25 @@ main {
 .add-post {
   display: flex;
   flex-direction: column;
+}
+
+.links {
+  margin-top: 10px;
+}
+
+.new_user,
+.links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.log-in {
+  text-align: center;
+}
+
+#user_remember_me {
+  width: 15px;
 }

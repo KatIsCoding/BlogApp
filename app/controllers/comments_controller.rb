@@ -1,8 +1,21 @@
 class CommentsController < ApplicationController
   def new; end
 
+  def destroy
+    @comment_to_delete = Comment.find(params[:comment_id])
+    @comment_to_delete.destroy
+    @comment_to_delete.post.update(commentscounter: @comment_to_delete.post.commentscounter - 1)
+    respond_to do |format|
+      format.html do
+        redirect_to user_post_url(@comment_to_delete.post.author, @comment_to_delete.post),
+                    notice: 'Comment was successfully deleted.'
+      end
+      format.js
+    end
+  end
+
   def create
-    @current_user = UsersController.current_user
+    @current_user = current_user
     comment_params = params.permit(:text)
     @post = Post.find(params[:id])
     @comment = @post.comments.new(text: comment_params[:text], author: @current_user)

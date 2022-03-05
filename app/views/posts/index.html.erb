@@ -1,8 +1,10 @@
 <main>
 <%= render :partial => "shared/user_container", locals: { :user => @user }%>
     <ul class="posts-container">
-    
-      <% @user.posts.each do |post| %>
+      <%
+      for post0 in @user.posts do
+      post = Post.includes([:author]).find(post0.id)
+    %>
         
         <li>
           <%= render :partial => "shared/post_container", locals: { :post => post, :onClick => user_post_path(@user, post) }%>
